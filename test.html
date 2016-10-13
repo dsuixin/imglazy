@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>lazyLoad</title>
+<!-- 参考网址  https://segmentfault.com/a/1190000003881643 -->
+<style type="text/css" media="all"> 
+ * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 520px;
+            margin: 30px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        li {
+            width: 160px;
+            height: 160px;
+            float: left;
+            list-style: none;
+            margin: 5px;
+            background: url(loading.gif) center center no-repeat;
+            border: 1px dashed green;
+        }
+        img{
+        width:100%
+        }
+</style>
+</head>
+<body>
+ <div id="div1">
+   <li id="Link-002"></li>
+ </div>
+ <script> 
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute("style","width:0;height:0;border:0;position:absolute;top:-1px");
+        var a_href = "http://www.baidu.com";
+        iframe.setAttribute("src",a_href);
+        document.getElementById('div1').appendChild(iframe);
+    document.getElementById('Link-002').onclick=function(){
+                                window.location.href=a_href;
+                            }; 
+ </script>
+       
+</body>
+</html>
